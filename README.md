@@ -3,7 +3,7 @@ Little Scala project to simulate the communication between moon rovers and comma
 
 ### Run it
 
-```sbt &quot;run-main simulator.DemoSimulator&quot;
+```
 sbt "run-main simulator.DemoSimulator"
 ```
 

@@ -59,6 +59,7 @@ class CommandCenter(roverCount: Int,
         sBuilder.append("Reported position " + locationData.position + ", ")
         sBuilder.append("Predicted position " + getPredictedPosition(locationData) + ", ")
         sBuilder.append("Direction " + locationData.direction + ", ")
+        sBuilder.append("Speed " + locationData.speed + ", ")
         sBuilder.append("Turning angle " + locationData.turnAngle)
         println(sBuilder.toString())
       }
@@ -67,7 +68,7 @@ class CommandCenter(roverCount: Int,
   }
 
   def getPredictedPosition(l: LocationData): (Double, Double) = {
-    (l.position._1 * l.speed * initialDelayinSeconds * Math.cos(l.direction),
-     l.position._2 * l.speed * initialDelayinSeconds * Math.sin(l.direction))
+    (l.position._1 + l.speed * initialDelayinSeconds * Math.cos(l.direction),
+     l.position._2 + l.speed * initialDelayinSeconds * Math.sin(l.direction))
   }
 }

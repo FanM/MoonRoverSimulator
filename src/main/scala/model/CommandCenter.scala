@@ -29,6 +29,7 @@ class CommandCenter(roverCount: Int,
       finishedCount += 1
       if (finishedCount == commandCenter.getRoverCount()) {
         println("Shutting down Command Center")
+        commandCenter.abort()
         context.system.terminate()
       }
     }

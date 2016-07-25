@@ -22,6 +22,6 @@ class LocationDataBuilderTest extends UnitTestBase {
 
     dataSequence.forall(l => {
       l.direction >= 0 && l.direction < Math.PI * 2
-    })
+    }) should be (true)
   }
 }

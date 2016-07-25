@@ -9,6 +9,7 @@ import datagenerator.LocationData
   * Prints the data from the buffer array every interval millisecond
   */
 class CommandCenter(roverCount: Int,
+                    transmissionDelayInSeconds: Long,
                     initialDelay: Long,
                     interval: Long)
   extends PeriodicTaskRunner(initialDelay, interval) {
@@ -33,7 +34,7 @@ class CommandCenter(roverCount: Int,
     }
   }
 
-  private final val initialDelayinSeconds = initialDelay / 1000
+  private final val initialDelayinSeconds = transmissionDelayInSeconds
   private val messageReceiver = actorSystem.actorOf(Props(new MessageReceiver(this)),
                                                     name="MessageReceiver")
   // Buffer to store the LocationData sent from the rovers

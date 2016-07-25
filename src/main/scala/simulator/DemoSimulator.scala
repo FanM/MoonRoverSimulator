@@ -48,6 +48,7 @@ class DemoSimulator() {
       sequenceArr(locationData.id) += locationData
     }
     val commandCenter = new CommandCenter(roverCount,
+                              conf.getDuration("rover.transmission_delay", TimeUnit.SECONDS),
                               0, // no delay
                               conf.getDuration("command_center.interval", TimeUnit.MILLISECONDS))
     commandCenter.start()
